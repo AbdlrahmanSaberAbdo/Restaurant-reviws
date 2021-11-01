@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    container_name: db
+    image: mysql:5.7
+    ports:
+      - '3306:3306'
+    environment:
+       MYSQL_DATABASE: 'restaurant-app'
+       MYSQL_USER: 'root'
+       MYSQL_PASSWORD: '123456'
+       MYSQL_ROOT_PASSWORD: '123456'
+  elasticsearch:
+    image: elasticsearch:7.8.1
+    environment:
+      - discovery.type=single-node
+    depends_on:
+      - db
+    ports:
+      - "9200:9200"
+  backend:
+    build: .
+    command: bash -c "python manage.py runserver 0.0.0.0:8000 && python manage.py migrate"
+    volumes:
+      - ./backend/restaurant_app:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
