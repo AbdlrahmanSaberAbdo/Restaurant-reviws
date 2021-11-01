@@ -9,7 +9,7 @@ The app contains two parts (frontend - backend) with different features
     - Django rest framework
     - Api docs (coreapi)
     - Test cases
-    - Elasticsearch
+    - Elasticsearch (implemented simple endpoints for searching)
     - Filters (ordering - searching)
     - Validations
     - Pagination
@@ -26,7 +26,7 @@ The app contains two parts (frontend - backend) with different features
 #Trade-offs
 - Dockerize the frontend 
 - Authentication (oAuth2) 
-- More features with elasticsearch
+- More features with elasticsearch (advanced search)
 
 #Getting started with backend:
 - clone the project
