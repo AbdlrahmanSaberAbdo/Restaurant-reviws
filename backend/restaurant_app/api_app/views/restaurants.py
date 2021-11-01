@@ -21,7 +21,7 @@ class RestaurantListView(viewsets.ModelViewSet):
     filter_backends  = (DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter,)
     filter_fields   = ('name', 'city__name',)
     ordering_fields = ('id', 'name',)
-    search_fields   = ('name',)
+    search_fields   = ('name','city__name')
 
     def get_queryset(self):
         queryset = super().filter_queryset(self.queryset)

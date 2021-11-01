@@ -5,7 +5,8 @@ const getAll = (data = null) => {
   const limit   = data.limit !== undefined ? data.limit : 15;
   const offset  = data.offset !== undefined ? data.offset: 0;
   const order   = data.order !== undefined && data.order === "desc" ? "-id" : "id";
-  return http.get(`/restaurants/?limit=${limit}&offset=${offset}&ordering=${order}`);
+  const search  = data.search !== undefined ? data.search: "";
+  return http.get(`/restaurants/?limit=${limit}&offset=${offset}&ordering=${order}&search=${search}`);
 };
 
 const get = id => {

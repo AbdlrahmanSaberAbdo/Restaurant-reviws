@@ -108,9 +108,11 @@ class Restaurants extends React.Component {
     const filters = {
       limit: this.state.rowsPerPage,
       offset: this.state.page * this.state.rowsPerPage,
-      order: this.state.order
+      order: this.state.order,
+      search: this.state.search
     };
 
+    console.log(filters)
     RestaurantServices.getAll({...filters}).then(res => {
       const restaurants   = res.data.results;
       const total         = res.data.count;
@@ -128,9 +130,16 @@ class Restaurants extends React.Component {
   setSearch(value) {
     this.setState({search: value});
   }
-  onChangeSearchTitle = e => {
+  onChangeSearch = e => {
     const search = e.target.value;
+    const self = this;
     this.setSearch(search);
+
+    // debounce
+    clearTimeout(self.timeout);
+    self.timeout = setTimeout(() => {
+      self.retrieveRestaurants();
+    }, 700);
   };
 
   styles = {
@@ -156,9 +165,9 @@ class Restaurants extends React.Component {
             style={this.styles.search}
             type="text"
             className="form-control"
-            placeholder="Search by title"
+            placeholder="Search by name or city"
             value={search}
-            onChange={this.onChangeSearchTitle}
+            onChange={this.onChangeSearch}
           />
         </Typography>
         <div className={classes.tableWrapper}>
