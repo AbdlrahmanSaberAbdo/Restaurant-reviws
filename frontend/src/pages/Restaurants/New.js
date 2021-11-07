@@ -99,6 +99,7 @@ const NewRestaurant = (props) => {
           <Select
             fullWidth={true}
             margin="normal"
+            value={restaurant.city}
             name="city"
             onClick={handleInputChange}
           >

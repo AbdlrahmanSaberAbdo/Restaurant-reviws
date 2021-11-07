@@ -123,8 +123,6 @@ class Header extends React.Component {
   render() {
     const { handleChangeNavDrawer, classes, navDrawerOpen } = this.props;
 
-    const { anchorEl } = this.state;
-
     return (
       <div>
         <AppBar
