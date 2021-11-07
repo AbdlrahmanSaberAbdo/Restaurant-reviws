@@ -1,8 +1,8 @@
-#Description
+# Description
 An app that creates reviews for restaurants in specific city, each restaurant belongs to city and each restaurant has many reviews.
 
 
-#Technical Reasoning
+# Technical Reasoning
 The app contains two parts (frontend - backend) with different features
 - **Backend**
     - Django
@@ -23,12 +23,12 @@ The app contains two parts (frontend - backend) with different features
    - Pagination & ordering by consuming endpoints in the backend
 - **DevOps**
   - The backend runs on docker
-#Trade-offs
+# Trade-offs
 - Dockerize the frontend 
 - Authentication (oAuth2) 
 - More features with elasticsearch (advanced search)
 
-#Getting started with backend:
+# Getting started with backend:
 - clone the project
 - run `docker-compose up -d`
 - run `docker-compose run backend python manage.py migrate`
@@ -37,7 +37,7 @@ The app contains two parts (frontend - backend) with different features
 - Run tests `docker-compose run backend python manage.py test`
 - Visit Elasticsearch from `http://localhost:9200/`
 
-#Getting started with frontend:
+# Getting started with frontend:
 - go to `frontend` directory
 - run `yarn && yarn start`
 - then go to `localhost:3000`
